@@ -8,6 +8,7 @@ import TodoList from './components/TodoList';
 function App () {
  const [todo, setTodo] = useState<Todo[]>([]);
  const [editingText, setEditingText] = useState<string>('');
+ const [editingDesc, setEditingDesc] = useState<string>('');
  const [editingId, setEditingId] = useState<number>();
 const [editing, setEditing] = useState<boolean>(false);
   const getData = (data: Todo) => {
@@ -26,11 +27,12 @@ const [editing, setEditing] = useState<boolean>(false);
     const item: any = todo.find(elm => elm.id === id);
     setEditing(prev => !editing);
     setEditingText(item.title);
+    setEditingDesc(item.description);
     setEditingId(item.id);
   }
   const editFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    setTodo(todo.map(item => item.id === editingId ? {...item, title: editingText}: item));
+    setTodo(todo.map(item => item.id === editingId ? {...item, title: editingText, description: editingDesc}: item));
     setEditing(false);
   }
   return (
@@ -40,6 +42,7 @@ const [editing, setEditing] = useState<boolean>(false);
       {editing && (<div>
         <form onSubmit={editFormHandler}>
           <input type="text" defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)}/>
+          <textarea defaultValue={editingDesc} onChange={(e) => setEditingDesc(e.target.value)}></textarea>
           <button>Save</button>
         </form>
       </div>)}
