@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import classes from './TodoForm.module.css';
 let id: number = 0;
 const TodoForm: React.FC<{onSave: any}> = (props) => {
     const [title, setTitle] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
+    const [isValid, setIsValid] = useState<boolean>(false);
 
     const titleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsValid(title.trim().length > 1);
         setTitle(e.target.value);
+
     }
     const descHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setDesc(e.target.value);
@@ -26,12 +30,17 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
     }
   return (
     <div>
-        <form onSubmit={formHandler}>
-            <input type="text" onChange={titleHandler} value={title}/>
-            <textarea onChange={descHandler} value={desc}></textarea>
-            <button>Add</button>
+        <form onSubmit={formHandler} className={classes.form}>
+            <label htmlFor="title">Title</label>
+            <input type="text" name="title" onChange={titleHandler} className={classes.inputField} value={title}/>
+            {!isValid && <span style={{color: 'red'}}>Enter a valid title</span>}
+            <label htmlFor="desc">Description</label>
+            <textarea name="desc" onChange={descHandler} className={classes.inputField} value={desc}></textarea>
+            <button disabled={!isValid} className={classes.btn}>Add</button>
         </form>
-        <button onClick={cancelHandler}>Cancel</button>
+        <div className={classes.bottomAction}>
+            <button onClick={cancelHandler} className={classes.btn}>Cancel</button>
+        </div>
     </div>
   )
 }

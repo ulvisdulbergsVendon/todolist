@@ -4,12 +4,12 @@ import Card from './UI/Card';
 import { Todo } from './models/todo';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import TodoEdit from './components/TodoEdit';
 
 function App () {
  const [todo, setTodo] = useState<Todo[]>([]);
- const [isEditing, setIsEditing] = useState<boolean>(false);
  const [editingText, setEditingText] = useState<string>('');
+ const [editingId, setEditingId] = useState<number>();
+const [editing, setEditing] = useState<boolean>(false);
   const getData = (data: Todo) => {
     setTodo(prev => [...prev, data]);
   }
@@ -23,17 +23,26 @@ function App () {
   }
 
   const editTodo = (id: number) => {
-    const item: any = todo.find(item => {
-      return item.id === id;
-    })
-    setIsEditing(prev => !isEditing);
+    const item: any = todo.find(elm => elm.id === id);
+    setEditing(prev => !editing);
     setEditingText(item.title);
+    setEditingId(item.id);
+  }
+  const editFormHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    setTodo(todo.map(item => item.id === editingId ? {...item, title: editingText}: item));
+    setEditing(false);
   }
   return (
     <Card>
       <TodoForm onSave={getData}/>
       <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo}/>
-      {isEditing && (<TodoEdit value={editingText}/>)}
+      {editing && (<div>
+        <form onSubmit={editFormHandler}>
+          <input type="text" defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)}/>
+          <button>Save</button>
+        </form>
+      </div>)}
     </Card>
   );
 }
