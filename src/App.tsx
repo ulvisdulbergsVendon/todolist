@@ -12,7 +12,6 @@ function App () {
  const [editingText, setEditingText] = useState<string>('');
   const getData = (data: Todo) => {
     setTodo(prev => [...prev, data]);
-    console.log(todo);
   }
 
   const deleteTodo = (id: number) => {
@@ -20,13 +19,7 @@ function App () {
   }
 
   const handleDone = (id: number) => {
-    const item: any = todo.find(item => {
-      return item.id === id;
-    })
-    console.log(item);
-
-    item.isDone = true;
-    console.log(item);
+    setTodo(todo.map((item) => item.id === id ? {...item, isDone: !item.isDone} : item))
   }
 
   const editTodo = (id: number) => {
