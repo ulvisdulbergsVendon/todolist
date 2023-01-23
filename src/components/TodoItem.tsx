@@ -7,11 +7,11 @@ const TodoItem: React.FC<{id: number, title: string, description: string, isDone
         <li>
             <h1>{props.title} {props.id}</h1>
             <p>{props.description}</p>
-            <div>
+            {!props.isDone && (<div>
             <button onClick={() => props.deleteTodo(props.id)}>Delete</button>
             <button onClick={() => props.handleDone(props.id)}>Done</button>
             <button onClick={() => props.editTodo(props.id)}>Edit</button>
-            </div>
+            </div>)}
         </li>
     </div>
   )
