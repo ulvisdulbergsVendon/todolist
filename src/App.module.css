@@ -1,45 +1,4 @@
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-}
-
-.top{
-  display: flex;
-  flex-direction: column;
-}
-
-.topForm {
-  display: flex;
-  flex-direction: column;
-  min-width: 25rem;
-}
-
-input[type=text] {
-  height: 2rem;
-  border: none;
-  background-color: #e9ecef;
-  margin: 1rem 0;
-  border-left: 4px solid purple;
-}
-
-button {
-  border: none;
-  padding: 0.4rem 2rem;
-  background-color: #9775fa;
-  text-transform: uppercase;
-  color: white;
-  margin: 1rem;
-  border-radius: 1500px;
-}
-ul{
-  list-style: none;
-}
-button:hover {
-  background-color: #7950f2;
-}
-.action {
-  display: flex;
-  justify-content: center;
+body {
+    display: flex;
+    justify-content: center;
 }
