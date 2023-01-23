@@ -2,3 +2,34 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.bigContainer{
+    min-width: 40rem;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.inputContainers {
+    width: 100%;
+    margin: 1rem 0;
+    height: 2rem;
+    border: none;
+    border-left: 4px solid purple;
+}
+
+.btn {
+    background-color: #9775fa;
+    border: none;
+    border-radius: 1500px;
+    padding: 0.8rem 2rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #7950f2;
+}

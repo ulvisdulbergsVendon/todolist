@@ -37,15 +37,20 @@ const [editing, setEditing] = useState<boolean>(false);
   }
   return (
     <Card>
+      <div className={classes.bigContainer}>
       <TodoForm onSave={getData}/>
       <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo}/>
-      {editing && (<div>
-        <form onSubmit={editFormHandler}>
-          <input type="text" defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)}/>
-          <textarea defaultValue={editingDesc} onChange={(e) => setEditingDesc(e.target.value)}></textarea>
-          <button>Save</button>
+      
+      {editing && (<Card><div>
+        <form onSubmit={editFormHandler} className={classes.editContainer}>
+          <label htmlFor="editTitle">Title</label>
+          <input type="text" name='editTitle' defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)} className={classes.inputContainers}/>
+          <label htmlFor="editDesc">Description</label>
+          <textarea defaultValue={editingDesc} name='editDesc' onChange={(e) => setEditingDesc(e.target.value)} className={classes.inputContainers}></textarea>
+          <button className={classes.btn}>Save</button>
         </form>
-      </div>)}
+      </div></Card>)}
+      </div>
     </Card>
   );
 }
