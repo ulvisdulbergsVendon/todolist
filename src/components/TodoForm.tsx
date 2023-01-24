@@ -23,6 +23,8 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
             isDone: false
         }
         props.onSave(data);
+        setTitle('');
+        setDesc('');
     }
     const cancelHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         setDesc('');
@@ -33,7 +35,7 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
         <form onSubmit={formHandler} className={classes.form}>
             <label htmlFor="title">Title</label>
             <input type="text" name="title" onChange={titleHandler} className={classes.inputField} value={title}/>
-            {!isValid && <span style={{color: 'red'}}>Enter a valid title</span>}
+            {!isValid && <span style={{color: 'red'}}>Enter a title above 2 letters</span>}
             <label htmlFor="desc">Description</label>
             <textarea name="desc" onChange={descHandler} className={classes.inputField} value={desc}></textarea>
             <button disabled={!isValid} className={classes.btn}>Add</button>
