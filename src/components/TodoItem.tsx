@@ -2,6 +2,7 @@ import React from 'react'
 import { Todo } from '../models/todo'
 import Card from '../UI/Card'
 import './TodoItem.css';
+
 interface Props{
     id: number,
     title: string,
@@ -11,6 +12,7 @@ interface Props{
     handleDone: (id: number) => void,
     editTodo: (id: number) => void
 }
+
 const TodoItem: React.FC<Props> = (props) => {
     return (
     <Card>
