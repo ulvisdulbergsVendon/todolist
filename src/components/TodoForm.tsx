@@ -11,6 +11,8 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
         setIsValid(title.trim().length > 1);
         setTitle(e.target.value);
     }
+
+    //Nesapratu kapec sis ir lieks
     const descHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setDesc(e.target.value);
     }
