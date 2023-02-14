@@ -15,13 +15,14 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
     const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const data = {
-            id: setId(id + 1),
+            id: id,
             title: title,
             description: desc,
             isDone: false
         }
         props.onSave(data);
         setIsValid(false);
+        setId(id + 1);
         setTitle('');
         setDesc('');
     }
