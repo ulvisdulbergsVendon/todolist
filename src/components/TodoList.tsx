@@ -14,15 +14,15 @@ const TodoList: React.FC<Props> = (props) => {
     <div>
          <ul>
             {props.items.map(item => (
-            <TodoItem 
-              id={item.id} 
-              title={item.title} 
-              description={item.description} 
-              isDone={item.isDone} 
-              deleteTodo={props.deleteTodo} 
-              editTodo={props.editTodo} 
-              handleDone={props.handleDone}
-            />))}
+              <TodoItem 
+                id={item.id} 
+                title={item.title} 
+                description={item.description} 
+                isDone={item.isDone} 
+                deleteTodo={props.deleteTodo} 
+                editTodo={props.editTodo} 
+                handleDone={props.handleDone}
+              />))}
         </ul>
     </div>
   )

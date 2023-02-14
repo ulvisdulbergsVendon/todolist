@@ -40,18 +40,17 @@ function App () {
   return (
     <Card>
       <div className="bigContainer">
-      <TodoForm onSave={getData}/>
-      <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo}/>
-      
-      {editing && (<Card><div>
-        <form onSubmit={editFormHandler} className="editContainer">
-          <label htmlFor="editTitle">Title</label>
-          <input type="text" name='editTitle' defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)} className="inputContainers"/>
-          <label htmlFor="editDesc">Description</label>
-          <textarea defaultValue={editingDesc} name='editDesc' onChange={(e) => setEditingDesc(e.target.value)} className="inputContainers"></textarea>
-          <button className="btn">Save</button>
-        </form>
-      </div></Card>)}
+        <TodoForm onSave={getData}/>
+        <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo}/>
+        {editing && (
+          <form onSubmit={editFormHandler} className="editContainer">
+            <label htmlFor="editTitle">Title</label>
+            <input type="text" name='editTitle' defaultValue={editingText} onChange={(e) => setEditingText(e.target.value)} className="inputContainers"/>
+            <label htmlFor="editDesc">Description</label>
+            <textarea defaultValue={editingDesc} name='editDesc' onChange={(e) => setEditingDesc(e.target.value)} className="inputContainers"></textarea>
+            <button className="btn">Save</button>
+          </form>
+        )}
       </div>
     </Card>
   );

@@ -4,24 +4,24 @@
     height: fit-content;
     justify-content: space-evenly;
     align-items: center;
-    margin: 1rem 0;
+    margin: 10px 0;
 }
 
 .inputField {
     width: 100%;
-    margin: 1rem 0;
-    height: 2rem;
+    margin: 10px 0;
+    height: 20px;
     border: none;
-    border-left: 4px solid purple;
+    border-left: 4px solid rgb(130, 1, 130);
 }
 
 .btn {
     background-color: #9775fa;
     border: none;
-    border-radius: 1500px;
-    padding: 0.8rem 2rem;
+    border-radius: 150px;
+    padding: 8px 20px;
     text-transform: uppercase;
-    color: white;
+    color: #fff;
 }
 
 .btn:hover {

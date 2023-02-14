@@ -2,9 +2,9 @@
     background-color: #9775fa;
     border: none;
     border-radius: 150px;
-    padding: 0.8rem 2rem;
+    padding: 8px 20px;
     text-transform: uppercase;
-    color: white;
+    color: #fff;
 }
 
 .btn:hover {
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 40px;
 }
 
 li {

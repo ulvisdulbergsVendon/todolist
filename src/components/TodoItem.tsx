@@ -20,11 +20,11 @@ const TodoItem: React.FC<Props> = (props) => {
             <h1>{props.title}</h1>
             <p>{props.description}</p>
             {!props.isDone && (
-            <div className="actionContainer">
-            <button className="btn" onClick={() => props.deleteTodo(props.id)}>Delete</button>
-            <button className="btn" onClick={() => props.handleDone(props.id)}>Done</button>
-            <button className="btn" onClick={() => props.editTodo(props.id)}>Edit</button>
-            </div>
+                <div className="actionContainer">
+                    <button className="btn" onClick={() => props.deleteTodo(props.id)}>Delete</button>
+                    <button className="btn" onClick={() => props.handleDone(props.id)}>Done</button>
+                    <button className="btn" onClick={() => props.editTodo(props.id)}>Edit</button>
+                </div>
             )}
         </li>
     </Card>

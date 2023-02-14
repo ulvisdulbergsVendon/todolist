@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './TodoForm.css';
 
 const TodoForm: React.FC<{onSave: any}> = (props) => {
-    const [id, setId] = useState<number>(0);
+    const [id, setId] = useState<number>(1);
     const [title, setTitle] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
     const [isValid, setIsValid] = useState<boolean>(false);
@@ -12,10 +12,6 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
         setTitle(e.target.value);
     }
 
-    //Nesapratu kapec sis ir lieks
-    const descHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setDesc(e.target.value);
-    }
     const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const data = {
@@ -38,9 +34,9 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
         <form onSubmit={formHandler} className="form">
             <label htmlFor="title">Title</label>
             <input type="text" name="title" onChange={titleHandler} className="inputField" value={title}/>
-            {!isValid && <span style={{color: 'red'}}>Enter a title above 2 letters</span>}
+            {!isValid && <span style={{color: '#c92a2a'}}>Enter a title above 2 letters</span>}
             <label htmlFor="desc">Description</label>
-            <textarea name="desc" onChange={descHandler} className="inputField">{desc}</textarea>
+            <textarea name="desc" onChange={(e) => setDesc(e.target.value)} className="inputField">{desc}</textarea>
             <button disabled={!isValid} className="btn">Add</button>
         </form>
         <div className="bottomAction">

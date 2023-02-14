@@ -4,7 +4,7 @@ body {
 }
 
 .bigContainer{
-    min-width: 40rem;
+    min-width: 400px;
 }
 
 .editContainer {
@@ -15,17 +15,17 @@ body {
 
 .inputContainers {
     width: 100%;
-    margin: 1rem 0;
-    height: 2rem;
+    margin: 10px 0;
+    height: 20px;
     border: none;
-    border-left: 4px solid purple;
+    border-left: 4px solid rgb(132, 1, 132);
 }
 
 .btn {
     background-color: #9775fa;
     border: none;
-    border-radius: 1500px;
-    padding: 0.8rem 2rem;
+    border-radius: 150px;
+    padding: 8px 20px;
     text-transform: uppercase;
     color: white;
 }
