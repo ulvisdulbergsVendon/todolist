@@ -21,6 +21,7 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
             isDone: false
         }
         props.onSave(data);
+        setIsValid(false);
         setTitle('');
         setDesc('');
     }
